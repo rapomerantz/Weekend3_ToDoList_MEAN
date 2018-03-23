@@ -7,11 +7,11 @@ Goal: Make a ToDo list
 [x] - Table
 [x] - - Task, est time of task, [BUTTON] complete task, [BUTTON] Delete Task
 [ ] 
-[ ] Set up Angular - link angular controller w/ buttons and inputs
+[x] Set up Angular - link angular controller w/ buttons and inputs
 [ ] 
-[ ] Link the database w/ Mongoose
+[X] Link the database w/ Mongoose
 
-[ ] Establish Schema
+[X] Establish Schema
 task: name of task
 time: est. time of task (in hrs)
 priority: 1/2/3

@@ -4,10 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="vendors/angular.js" charset="utf-8"></script>
+    <script src="scripts/client.js" charset="utf-8"></script>
     <title>Weekend 3 ~ ToDo List</title>
 </head>
-<body>
-    <h1>Weekend 3 ToDo List</h1>
-    
+<body ng-app="MyApp">
+    <div ng-controller="ToDoController as vm">
+        <h1>ToDo List</h1>
+        <hr>
+        New Task: {{vm.newTask}}
+        <div id="inputs">
+            <input ng-model="vm.newTask.task" type="text" placeholder="Task" value="Shave">
+            <input ng-model="vm.newTask.time" type="number" placeholder="Time (in hours)" value="2">
+            <input ng-model="vm.newTask.priority" type="number" placeholder="Priority (1/2/3)" value="1">
+            <button ng-click="vm.addTask(vm.newTask)">Enter Task</button>
+        </div>
+        <hr>
+        <div id="tableDiv">
+            <table>
+                <thead>
+                    <th>Task</th>
+                    <th>Est. Time (in hrs.)</th>
+                    <th>Priority</th>
+                    <th>Task Completed?</th>
+                    <th>[Button: Complete]</th>
+                    <th>[Button: Delete]</th>
+                </thead>
+                <tbody>
+                    <td>Shave</td>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>No</td>
+                    <td>[COMPLETE]</td>
+                    <td>[DELETE]</td>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 </html>

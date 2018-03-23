@@ -1,11 +1,11 @@
 Goal: Make a ToDo list
 
-[ ] spin up server ~ establish a port, write basic HTML, get a page to show up
-[ ] wire-frame the HTML
-[ ] - 3 Inputs - Task , est. time of task, priority (1/2/3)
-[ ] - 1 submit button
-[ ] - Table
-[ ] - - Task, est time of task, [BUTTON] complete task, [BUTTON] Delete Task
+[x] spin up server ~ establish a port, write basic HTML, get a page to show up
+[x] wire-frame the HTML
+[x] - 3 Inputs - Task , est. time of task, priority (1/2/3)
+[x] - 1 submit button
+[x] - Table
+[x] - - Task, est time of task, [BUTTON] complete task, [BUTTON] Delete Task
 [ ] 
 [ ] Set up Angular - link angular controller w/ buttons and inputs
 [ ] 

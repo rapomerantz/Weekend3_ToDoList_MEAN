@@ -73,8 +73,33 @@ app.get('/tasks', (req, res) => {
 });
 //END GET
 
+//DELETE
+app.delete('/tasks/:id', (req, res) => {
+ let taskId = req.params.id; 
+ Task.findByIdAndRemove(taskId, (err, removedTask) => {
+    if(err){
+      console.log('in err delete', err);
+      res.sendStatus(500);
+    }else{
+        res.sendStatus(200);
+    }
+ })
+})
+//END DELETE
 
-
+//PUT
+app.put('/tasks/:id', (req, res) => {
+  let taskId = req.params.id; 
+  let update = req.body; 
+  Task.findByIdAndUpdate(taskId, update, {new: true}, (err, updatedItem) => {
+    if(err){
+      console.log('PUT error', err);
+      res.sendStatus(500);
+    }else{
+        res.sendStatus(200);
+    }
+  });
+});
 
 
 //Spin up server

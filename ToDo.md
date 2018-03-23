@@ -19,14 +19,14 @@ category: default - general
 complete: true/false is task complete? 
 
 [x] Write a POST request 
-[ ] Write a GET request
-[ ] Get information moving between server & client
+[x] Write a GET request
+[x] Get information moving between server & client
 [ ]
 
 
-[ ]
-[ ]
-[ ]
+[ ] Get buttons wired up
+[ ] Write DELETE request for Delete button
+[ ] write PUT request for complete button
 [ ]
 [ ]
 [ ]

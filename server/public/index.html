@@ -39,8 +39,8 @@
                         <td>{{task.priority}}</td>
                         <td>{{task.category}}</td>
                         <td>{{task.taskCompleted}}</td>
-                        <td>[COMPLETE]</td>
-                        <td>[DELETE]</td>
+                        <td><button ng-click="vm.updateCompleted(task._id, task.taskCompleted)">Task Completed</button></td>
+                        <td><button ng-click="vm.removeTask(task._id)">Remove Task</button></td>
                     </tbody>
                 </div>
             </table>

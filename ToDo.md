@@ -1,0 +1,43 @@
+Goal: Make a ToDo list
+
+[ ] spin up server ~ establish a port, write basic HTML, get a page to show up
+[ ] wire-frame the HTML
+[ ] - 3 Inputs - Task , est. time of task, priority (1/2/3)
+[ ] - 1 submit button
+[ ] - Table
+[ ] - - Task, est time of task, [BUTTON] complete task, [BUTTON] Delete Task
+[ ] 
+[ ] Set up Angular - link angular controller w/ buttons and inputs
+[ ] 
+[ ] Link the database w/ Mongoose
+
+[ ] Establish Schema
+task: name of task
+time: est. time of task (in hrs)
+priority: 1/2/3
+category: default - general
+complete: true/false is task complete? 
+
+[ ] Write a POST request 
+[ ] Write a GET request
+[ ] Get information moving between server & client
+[ ]
+
+
+[ ]
+[ ]
+[ ]
+[ ]
+[ ]
+[ ]
+[ ]
+[ ]
+[ ]
+[ ]
+[ ]
+[ ]
+[ ]
+[ ]
+[ ]
+[ ]
+[ ]

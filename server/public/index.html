@@ -13,7 +13,7 @@
     <div ng-controller="ToDoController as vm">
         <h1>ToDo List</h1>
         <hr>
-        New Task: {{vm.newTask}}
+
         <div id="inputs">
             <input ng-model="vm.newTask.task" type="text" placeholder="Task" value="Shave">
             <input ng-model="vm.newTask.time" type="number" placeholder="Time (in hours)" value="2">
@@ -27,18 +27,22 @@
                     <th>Task</th>
                     <th>Est. Time (in hrs.)</th>
                     <th>Priority</th>
+                    <th>Category</th>
                     <th>Task Completed?</th>
                     <th>[Button: Complete]</th>
                     <th>[Button: Delete]</th>
                 </thead>
-                <tbody>
-                    <td>Shave</td>
-                    <td>2</td>
-                    <td>1</td>
-                    <td>No</td>
-                    <td>[COMPLETE]</td>
-                    <td>[DELETE]</td>
-                </tbody>
+                <div >
+                    <tbody ng-repeat="task in vm.taskArray">
+                        <td>{{task.task}}</td>
+                        <td>{{task.time}}</td>
+                        <td>{{task.priority}}</td>
+                        <td>{{task.category}}</td>
+                        <td>{{task.taskCompleted}}</td>
+                        <td>[COMPLETE]</td>
+                        <td>[DELETE]</td>
+                    </tbody>
+                </div>
             </table>
         </div>
     </div>

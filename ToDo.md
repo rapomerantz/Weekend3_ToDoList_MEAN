@@ -18,7 +18,7 @@ priority: 1/2/3
 category: default - general
 complete: true/false is task complete? 
 
-[ ] Write a POST request 
+[x] Write a POST request 
 [ ] Write a GET request
 [ ] Get information moving between server & client
 [ ]

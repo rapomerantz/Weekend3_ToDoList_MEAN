@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles/styles.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="vendors/angular.js" charset="utf-8"></script>
+    
     <script src="scripts/client.js" charset="utf-8"></script>
     <title>Weekend 3 ~ ToDo List</title>
 </head>
@@ -14,7 +15,6 @@
     <div ng-controller="ToDoController as vm">
         <h1>ToDo List</h1>
         <hr>
-
         <div id="inputs">
             <input ng-model="vm.newTask.task" type="text" placeholder="Task" value="Shave">
             <input ng-model="vm.newTask.time" type="number" placeholder="Time (in hours)" value="2">

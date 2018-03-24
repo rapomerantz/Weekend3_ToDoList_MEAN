@@ -18,9 +18,13 @@
   },
   "homepage": "https://github.com/rapomerantz/Weekend3_ToDoList_MEAN#readme",
   "dependencies": {
+    "@angular/animations": "^5.2.9",
+    "@angular/cdk": "^5.2.4",
+    "@angular/material": "^5.2.4",
     "angular": "^1.6.9",
     "body-parser": "^1.18.2",
     "express": "^4.16.3",
+    "material": "^0.2.6",
     "mongoose": "^5.0.11",
     "sweetalert": "^2.1.0"
   }

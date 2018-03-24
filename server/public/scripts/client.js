@@ -6,6 +6,18 @@ app.controller('ToDoController', ['$http', function ($http) {
     let self = this;
     let taskArray = []; 
 
+    // self.boxChecked = function (value, taskId, taskCompleted) {
+    //     if (value === true) {
+    //         console.log( value, taskId, taskCompleted );
+    //         self.updateCompleted(taskId, taskCompleted); 
+    //     } else {
+    //         console.log('nope' );
+    //         return false; 
+    //     }
+    // }
+
+
+
 //POST
     self.addTask = function (newTask) {
         console.log("in addTask: ", newTask);
@@ -39,26 +51,41 @@ app.controller('ToDoController', ['$http', function ($http) {
 //DELETE 
     self.removeTask = function (taskId) {
         console.log('in removeTask');
-        $http ({
-            method: 'DELETE',
-            url: '/tasks/' + taskId,
-        }).then(function(response) {
-            console.log('sucessfully deleted ', response);
-            self.getTasks(); 
-        }).catch(function(response) {
-            console.log('error in DELETE', response);
-        })
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this task!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              swal({
+                icon: "success",
+                text: "Task removed"
+              });
+              $http ({
+                  method: 'DELETE',
+                  url: '/tasks/' + taskId,
+              }).then(function(response) {
+                  console.log('sucessfully deleted ', response);
+                  self.getTasks(); 
+              }).catch(function(response) {
+                  console.log('error in DELETE', response);
+              })
+            }
+          });
     }
-
+    
 //PUT
     self.updateCompleted = function (taskId, currentCompleteStatus) {
-        console.log('Updating completed status');
+        console.log('Updating taskCompleted');
         $http({
             method: 'PUT', 
             url: '/tasks/' + taskId,
-            data: {taskCompleted: currentCompleteStatus = true}
+            data: {taskCompleted: currentCompleteStatus = !currentCompleteStatus}
         }).then(function(response){
-            console.log('Successfully changed status');
+            console.log('Successfully changed status - response:', response);
             self.getTasks();
         }).catch(function(error){
             console.log('Error in changing status: ', error);

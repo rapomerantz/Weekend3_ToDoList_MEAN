@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles/styles.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="vendors/angular.js" charset="utf-8"></script>
     <script src="scripts/client.js" charset="utf-8"></script>
     <title>Weekend 3 ~ ToDo List</title>
@@ -17,7 +18,12 @@
         <div id="inputs">
             <input ng-model="vm.newTask.task" type="text" placeholder="Task" value="Shave">
             <input ng-model="vm.newTask.time" type="number" placeholder="Time (in hours)" value="2">
-            <input ng-model="vm.newTask.priority" type="number" placeholder="Priority (1/2/3)" value="1">
+            <!-- <input ng-model="vm.newTask.priority" type="number" placeholder="Priority (1/2/3)" value="1"> -->
+            <select ng-model="vm.newTask.priority">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
             <button ng-click="vm.addTask(vm.newTask)">Enter Task</button>
         </div>
         <hr>
@@ -28,19 +34,21 @@
                     <th>Est. Time (in hrs.)</th>
                     <th>Priority</th>
                     <th>Category</th>
-                    <th>Task Completed?</th>
-                    <th>[Button: Complete]</th>
-                    <th>[Button: Delete]</th>
+                    <!-- <th>Task Completed?</th> -->
+                    <th></th>
+                    <th></th>
                 </thead>
-                <div >
-                    <tbody ng-repeat="task in vm.taskArray">
-                        <td>{{task.task}}</td>
-                        <td>{{task.time}}</td>
-                        <td>{{task.priority}}</td>
-                        <td>{{task.category}}</td>
-                        <td>{{task.taskCompleted}}</td>
-                        <td><button ng-click="vm.updateCompleted(task._id, task.taskCompleted)">Task Completed</button></td>
-                        <td><button ng-click="vm.removeTask(task._id)">Remove Task</button></td>
+                <div>
+                    <tbody >
+                        <tr ng-repeat="task in vm.taskArray" ng-class="{taskCompleted: task.taskCompleted === true}">
+                            <td>{{task.task}}</td>
+                            <td>{{task.time}}</td>
+                            <td>{{task.priority}}</td>
+                            <td>{{task.category}}</td>
+                            <!-- <td>{{task.taskCompleted}}</td> -->
+                            <td><button ng-click="vm.updateCompleted(task._id, task.taskCompleted)">Task Completed</td>
+                            <td><button ng-click="vm.removeTask(task._id)">Remove Task</button></td>
+                        </tr>
                     </tbody>
                 </div>
             </table>

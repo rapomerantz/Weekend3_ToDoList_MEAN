@@ -24,9 +24,9 @@ complete: true/false is task complete?
 [ ]
 
 
-[ ] Get buttons wired up
-[ ] Write DELETE request for Delete button
-[ ] write PUT request for complete button
+[x] Get buttons wired up
+[x] Write DELETE request for Delete button
+[x] write PUT request for complete button
 [ ]
 [ ]
 [ ]

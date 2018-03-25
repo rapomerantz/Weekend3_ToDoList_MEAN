@@ -1,6 +1,10 @@
 body {
-    background-color: #f5f5f5
- 
+    background-color: #f5f5f5; 
+    font-family: Helvetica; 
+}
+h1{
+    margin-left: 5%; 
+    background-color: 
 }
 
 table {
@@ -19,41 +23,31 @@ th, td {
     background: #c2c2c2;
   }
 
+  #topSection {
+    margin-left: 5%; 
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
 #topSection input{
     border:1px solid #BEBEBE;
     padding: 7px;
-    margin:0px;
     outline: none; 
+    margin: 2px; 
 }
 
-#topSection select {
+
+
+
+
+/* #topSection select {
     font-size: 12.8px;
-    /* height: 27px; */
+    height: 27px;
     padding: 6px;   
     margin-top: 1px; 
     border:1px solid #BEBEBE;
     background-color: white;
     color: grey;
-    -webkit-appearance: none;
-    -webkit-border-radius: 0px;
- }
+    color: #777777
+ } */
 
- #filters input{
-    border:1px solid #BEBEBE;
-    padding: 7px;
-    margin:0px;
-    outline: none; 
-}
-
-#filters select {
-    font-size: 12.8px;
-    /* height: 27px; */
-    padding: 6px;   
-    margin-top: 1px; 
-    border:1px solid #BEBEBE;
-    background-color: white;
-    color: grey;
-    -webkit-appearance: none;
-    -webkit-border-radius: 0px;
- }
- 

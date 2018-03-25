@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
     <link rel="stylesheet" href="styles/styles.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="vendors/angular.js" charset="utf-8"></script>
@@ -13,13 +14,14 @@
 </head>
 <body ng-app="MyApp">
     <div ng-controller="ToDoController as vm">
-        <h1>ToDo List</h1>
-        <hr>
+        <div id="h1Div">
+            <h1>ToDo List</h1>
+        </div>
         <div id="topSection">
             <div id="inputs">
                 <input ng-model="vm.newTask.task" type="text" placeholder="Task">
-                <input ng-model="vm.newTask.time" type="number" placeholder="Time (in hours)">
-                <input ng-model="vm.newTask.priority" type="number" placeholder="Priority (1/2/3)" >
+                <input ng-model="vm.newTask.time" type="number" placeholder="Time (in hrs.)">
+                <input ng-model="vm.newTask.priority" type="number" placeholder="Priority (number)" >
                 <input ng-model="vm.newTask.category" type="text" placeholder="Category (ex. Work)" >
                 <!-- <select ng-model="vm.newTask.category">
                     <option value="" selected disabled hidden>Task category</option>
@@ -36,10 +38,12 @@
                 placeholder="Filter by task" >
                 <input ng-model="priorityFilter" type="number"
                 placeholder="Filter by priority" >
-                <button ng-click="[taskFilter = undefined, priorityFilter = undefined]">Reset</button>
+                <input ng-model="categoryFilter" type="text"
+                placeholder="Filter by category" >
+                <button ng-click="[taskFilter = undefined, priorityFilter = undefined, categoryFilter = undefined]">Reset</button>
             </div>
         </div>
-        <hr>
+        <br>
         <div id="tableDiv">
             <table>
                 <thead>
@@ -54,7 +58,7 @@
                 <div>
                     <tbody >
                         <tr 
-                        ng-repeat="task in vm.taskArray | filter: {task: taskFilter, priority: priorityFilter} | orderBy: 'taskCompleted'" 
+                        ng-repeat="task in vm.taskArray | filter: {task: taskFilter, priority: priorityFilter, category: categoryFilter} | orderBy: 'taskCompleted'" 
                         ng-class="{taskCompleted: task.taskCompleted === true}">
                             <td>{{task.task}}</td>
                             <td>{{task.time}}</td>
@@ -68,6 +72,9 @@
                 </div>
             </table>
         </div>
+        <footer>
+            <h6>this site hand-crafted by r.atticus.pomerantz</h6>
+        </footer>
     </div>
 </body>
 </html>

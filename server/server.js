@@ -35,7 +35,7 @@ let taskSchema = new Schema ({
   task: {type: String}, 
   time: {type: Number},
   priority: {type: Number},
-  category: {type: String, default: 'general'},
+  category: {type: String, default: 'General'},
   taskCompleted: {type: Boolean, default: false}
 });
 

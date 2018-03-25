@@ -5,7 +5,8 @@ body {
 
 table {
     border-collapse: collapse;
-    width: 100%;
+    width: 80%;
+    margin-left: 5%; 
 }
 
 th, td {
@@ -17,3 +18,42 @@ th, td {
 .taskCompleted {
     background: #c2c2c2;
   }
+
+#topSection input{
+    border:1px solid #BEBEBE;
+    padding: 7px;
+    margin:0px;
+    outline: none; 
+}
+
+#topSection select {
+    font-size: 12.8px;
+    /* height: 27px; */
+    padding: 6px;   
+    margin-top: 1px; 
+    border:1px solid #BEBEBE;
+    background-color: white;
+    color: grey;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0px;
+ }
+
+ #filters input{
+    border:1px solid #BEBEBE;
+    padding: 7px;
+    margin:0px;
+    outline: none; 
+}
+
+#filters select {
+    font-size: 12.8px;
+    /* height: 27px; */
+    padding: 6px;   
+    margin-top: 1px; 
+    border:1px solid #BEBEBE;
+    background-color: white;
+    color: grey;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0px;
+ }
+ 

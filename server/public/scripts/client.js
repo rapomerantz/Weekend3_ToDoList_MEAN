@@ -6,31 +6,27 @@ app.controller('ToDoController', ['$http', function ($http) {
     let self = this;
     let taskArray = []; 
 
-    // self.boxChecked = function (value, taskId, taskCompleted) {
-    //     if (value === true) {
-    //         console.log( value, taskId, taskCompleted );
-    //         self.updateCompleted(taskId, taskCompleted); 
-    //     } else {
-    //         console.log('nope' );
-    //         return false; 
-    //     }
-    // }
-
-
-
 //POST
     self.addTask = function (newTask) {
-        console.log("in addTask: ", newTask);
-        $http({
-            method: 'POST',
-            url: '/tasks',
-            data: newTask
-        }).then(function(response) {
-            console.log('successful POST', response)
-            self.getTasks();  
-        }).catch(function(response) {
-            console.log('failed POST', response);
-        })
+        if (newTask.priority !== undefined && newTask.task !== undefined && newTask.time !== undefined) {
+            console.log("in addTask: ", newTask);
+            $http({
+                method: 'POST',
+                url: '/tasks',
+                data: newTask
+            }).then(function(response) {
+                console.log('successful POST', response)
+                self.getTasks();  
+            }).catch(function(response) {
+                console.log('failed POST', response);
+            })
+        } else {
+            swal({
+                icon: "warning",
+                title: "Check your input fields",
+                text: "All input fields are required",
+              });
+        }
     }
     
 //GET
@@ -60,10 +56,10 @@ app.controller('ToDoController', ['$http', function ($http) {
           })
           .then((willDelete) => {
             if (willDelete) {
-              swal({
-                icon: "success",
-                text: "Task removed"
-              });
+            //   swal({
+            //     icon: "success",
+            //     text: "Task removed"
+            //   });
               $http ({
                   method: 'DELETE',
                   url: '/tasks/' + taskId,
@@ -92,10 +88,13 @@ app.controller('ToDoController', ['$http', function ($http) {
         })
     }
 
-
-
-
     self.getTasks();  
+
+    self.resetTable = function (taskFilter) {
+        taskFilter = undefined; 
+        console.log(taskFilter);
+        
+    }
 
 
 }]);

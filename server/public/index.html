@@ -15,16 +15,28 @@
     <div ng-controller="ToDoController as vm">
         <h1>ToDo List</h1>
         <hr>
-        <div id="inputs">
-            <input ng-model="vm.newTask.task" type="text" placeholder="Task" value="Shave">
-            <input ng-model="vm.newTask.time" type="number" placeholder="Time (in hours)" value="2">
-            <!-- <input ng-model="vm.newTask.priority" type="number" placeholder="Priority (1/2/3)" value="1"> -->
-            <select ng-model="vm.newTask.priority">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-            </select>
-            <button ng-click="vm.addTask(vm.newTask)">Enter Task</button>
+        <div id="topSection">
+            <div id="inputs">
+                <input ng-model="vm.newTask.task" type="text" placeholder="Task" value="Shave">
+                <input ng-model="vm.newTask.time" type="number" placeholder="Time (in hours)" value="2">
+                <input ng-model="vm.newTask.priority" type="number" placeholder="Priority (1/2/3)" value="1">
+                <select ng-model="vm.newTask.category">
+                    <option value="" selected disabled hidden>Task category</option>
+                    <option value="General">General</option>
+                    <option value="Work">Work</option>
+                    <option value="Personal">Personal</option>
+                    <option value="Other">Other</option>
+                </select>
+                <button ng-click="vm.addTask(vm.newTask)">Enter Task</button>
+            </div>
+            <br>
+            <div id="filters">
+                <input ng-model="taskFilter" type="text"
+                placeholder="Filter by task" >
+                <input ng-model="priorityFilter" type="number"
+                placeholder="Filter by priority" >
+                <button ng-click="[taskFilter = undefined, priorityFilter = undefined]">Reset</button>
+            </div>
         </div>
         <hr>
         <div id="tableDiv">
@@ -40,7 +52,9 @@
                 </thead>
                 <div>
                     <tbody >
-                        <tr ng-repeat="task in vm.taskArray" ng-class="{taskCompleted: task.taskCompleted === true}">
+                        <tr 
+                        ng-repeat="task in vm.taskArray | filter: {task: taskFilter, priority: priorityFilter} | orderBy: 'taskCompleted'" 
+                        ng-class="{taskCompleted: task.taskCompleted === true}">
                             <td>{{task.task}}</td>
                             <td>{{task.time}}</td>
                             <td>{{task.priority}}</td>
